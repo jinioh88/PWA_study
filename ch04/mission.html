@@ -15,6 +15,7 @@
           나이: {{item.age}}
         </li>
       </ol>
+      <button :disabled="addDisabled" type="submit">Add</button>
     </div>
     <script>
       var main = new Vue({
@@ -25,6 +26,11 @@
             { name: "이순신", age: 30 },
             { name: "김유신", age: 40 },
           ],
+        },
+        computed: {
+          addDisabled() {
+            return this.message.lenth >= 10 || this.newMessage.length > 50;
+          },
         },
       });
     </script>
